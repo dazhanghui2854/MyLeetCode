@@ -4,12 +4,12 @@
 
 
 
-
-
 using namespace std;
 
 
-int lengthOfLongestSubstringTwoDistinct(string s) 
+
+
+int lengthOfLongestSubstringKDistinct(string s , int k) 
 {
     int len = s.size();
     int left = 0;
@@ -34,7 +34,7 @@ int lengthOfLongestSubstringTwoDistinct(string s)
         {
             char cR = s[right];				
             st[cR]++;						//将值插入哈希表中
-            if(st.size() <= 2)				//字符种类没超过2种
+            if(st.size() <= k)				//字符种类没超过k种
             {
                 right++;			
             }
