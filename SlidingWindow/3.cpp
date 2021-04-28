@@ -1,56 +1,101 @@
 #include <iostream>
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
 
 
 using namespace std;
 
 
+/*
+¸ø¶¨Ò»¸ö×Ö·û´®£¬ÇëÄãÕÒ³öÆäÖĞ²»º¬ÓĞÖØ¸´×Ö·ûµÄ?×î³¤×Ó´®?µÄ³¤¶È¡£
 
+?
+
+Ê¾Àı?1:
+
+ÊäÈë: s = "abcabcbb"
+Êä³ö: 3 
+½âÊÍ: ÒòÎªÎŞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ "abc"£¬ËùÒÔÆä³¤¶ÈÎª 3¡£
+Ê¾Àı 2:
+
+ÊäÈë: s = "bbbbb"
+Êä³ö: 1
+½âÊÍ: ÒòÎªÎŞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ "b"£¬ËùÒÔÆä³¤¶ÈÎª 1¡£
+Ê¾Àı 3:
+
+ÊäÈë: s = "pwwkew"
+Êä³ö: 3
+½âÊÍ: ÒòÎªÎŞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ?"wke"£¬ËùÒÔÆä³¤¶ÈÎª 3¡£
+?    Çë×¢Òâ£¬ÄãµÄ´ğ°¸±ØĞëÊÇ ×Ó´® µÄ³¤¶È£¬"pwke"?ÊÇÒ»¸ö×ÓĞòÁĞ£¬²»ÊÇ×Ó´®¡£
+Ê¾Àı 4:
+
+ÊäÈë: s = ""
+Êä³ö: 0
+?
+
+ÌáÊ¾£º
+
+0 <= s.length <= 5 * 104
+s?ÓÉÓ¢ÎÄ×ÖÄ¸¡¢Êı×Ö¡¢·ûºÅºÍ¿Õ¸ñ×é³É
+
+À´Ô´£ºÁ¦¿Û£¨LeetCode£©
+Á´½Ó£ºhttps://leetcode-cn.com/problems/longest-substring-without-repeating-characters
+Öø×÷È¨¹éÁì¿ÛÍøÂçËùÓĞ¡£ÉÌÒµ×ªÔØÇëÁªÏµ¹Ù·½ÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+
+*/
 
 
 
 
 int lengthOfLongestSubstring(string s) 
 {
-    int len = s.size();
-    int ret_max = 0;
-    unordered_set<char> st;
+	int len = s.size();
+	int ret_max = 0;
+	unordered_set<char> st;
 
-    int left = 0;
-    int right = 0;					//å¼€å§‹çª—å£æŒ‡å‘ç¬¬ä¸€ä¸ª
+	int left = 0;
+	int right = 0;				   //¿ªÊ¼´°¿ÚÃ»Êı×Ö
 
-    for(int left = 0; left < len; left++)
-    {
-        if(left!=0)
-        {
-            char cL = s[left -1];
-            st.erase(cL);      		//æ“¦é™¤å‡ºå·¦è¾¹ç•Œçš„setå€¼
-        }
+	for(int left = 0; left < len; left++)
+	{
+		if(left!=0)
+		{
+			char cl = s[left -1];
+			st.erase(cl);	   //²Á³ı³ö×ó±ß½çµÄsetÖµ,
+		}
 
-        /*ç§»åŠ¨å³çª—å£*/
-        while(right < len  ) 		//ä¸€ç›´ç§»åŠ¨å³è¾¹ç•Œ
-        { 
-            char cR = s[right] ;
-            if(st.count(cR)==0)
-            {
-                 st.insert(cR) ; 	//æŠŠåé¢å€¼æ’å…¥
-                 right++;
-            }
-            else
-            {
-                break;				//ä¸ç¬¦åˆæ¡ä»¶ï¼Œé€€å‡ºwhileå¾ªç¯
-            }
-        }
+		/*ÒÆ¶¯ÓÒ´°¿Ú*/
+		while(right < len  ) //??Ê±ºòÒ»Ö±ÒÆ¶¯ÓÒ±ß½ç
+		{ 
+			char cr = s[right] ;
+			if(st.count(cr)==0)
+			{
+				 st.insert(cr) ; //°ÑºóÃæÖµ²åÈë
+				 right++;
+			}
+			else
+			{
+				break;
+			}
+		}
 
-        if(right - left > ret_max)
-            ret_max = right - left  ;
+		if(right - left > ret_max)
+			ret_max = right - left	;
 
-    }
+	}
 
-    return ret_max;
+	return ret_max;
 }
 
 
+
+int main()
+{
+	string s = "abcabcbb" ;
+	cout << lengthOfLongestSubstring(s) << endl;
+	return 0;
+}
 
 
 

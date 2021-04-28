@@ -7,51 +7,69 @@
 using namespace std;
 
 
+/*
+¸ø¶¨Ò»¸ö×Ö·û´® s £¬ÕÒ³ö?ÖÁ¶à?°üº¬ k ¸ö²»Í¬×Ö·ûµÄ×î³¤×Ó´® T¡£
+
+Ê¾Àı 1:
+
+ÊäÈë: s = "eceba", k = 2
+Êä³ö: 3
+½âÊÍ: Ôò T Îª "ece"£¬ËùÒÔ³¤¶ÈÎª 3¡£
+Ê¾Àı 2:
+
+ÊäÈë: s = "aa", k = 1
+Êä³ö: 2
+½âÊÍ: Ôò T Îª "aa"£¬ËùÒÔ³¤¶ÈÎª 2¡£
+
+À´Ô´£ºÁ¦¿Û£¨LeetCode£©
+Á´½Ó£ºhttps://leetcode-cn.com/problems/longest-substring-with-at-most-k-distinct-characters
+Öø×÷È¨¹éÁì¿ÛÍøÂçËùÓĞ¡£ÉÌÒµ×ªÔØÇëÁªÏµ¹Ù·½ÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+
+*/
 
 
-int lengthOfLongestSubstringKDistinct(string s , int k) 
+int lengthOfLongestSubstringKDistinct(string s, int k) 
 {
-    int len = s.size();
-    int left = 0;
-    int right = 0;
-    int ret_len = 0;
+	int len = s.size();
 
-    unordered_map<char,int> st;
+	int left = 0;
+	int right = 0;
+	int max_len = 0;
+	unordered_map<char,int>st;
 
-    for(int left = 0; left < len; left++)
-    {
-        if(left!=0)
-        {
-            char cL = s[left -1];
-            st[cL]--;					//å»é™¤å·¦è¾¹ç•Œçš„æ•°
-            if(st[cL] == 0)				//åˆ¤æ–­å¦‚æœä¸º0äº†ï¼Œåˆ™ä»å“ˆå¸Œè¡¨ä¸­åˆ é™¤è¯¥é”®å€¼å¯¹
-            {
-                st.erase(cL);
-            }
 
-        }
-        while(right < len)
-        {
-            char cR = s[right];				
-            st[cR]++;						//å°†å€¼æ’å…¥å“ˆå¸Œè¡¨ä¸­
-            if(st.size() <= k)				//å­—ç¬¦ç§ç±»æ²¡è¶…è¿‡kç§
-            {
-                right++;			
-            }
-            else
-            {
-                //st[cR]--;					
-                st.erase(cR);				//åˆ é™¤åˆšæ’å…¥çš„é”®å€¼å¯¹
-                break;
-            }
-        }
+	for(int left = 0; left < len;left++)
+	{
+		if(left!=0)
+		{
+			char cL = s[left - 1];
+			st[cL]--;
+			if(st[cL] == 0)
+				st.erase(cL);
+		}
 
-        if(right - left > ret_len)			//å½“å‰rightå€¼ä¸ç¬¦åˆæ¡ä»¶ï¼Œé•¿åº¦ = right - 1 -left + 1 = right - left
-            ret_len = right - left ;
+		while(right < len)
+		{
+			char cR = s[right];
+			st[cR]++;
+			if(st.size()<= k)
+			{
+				right++;
+			}
+			else
+			{
+				st.erase(cR);				//Õâ¸ö¼üÖµ¶ÔÉ¾³ı
+				break;
+			}
+		}
 
-    }
-    return ret_len;
+		if(right - left > max_len)
+			max_len = right - left ;
+
+	}
+	return max_len;
 }
+
 
 
 
@@ -59,10 +77,9 @@ int lengthOfLongestSubstringKDistinct(string s , int k)
 int main()
 {
 
- //string s = "ccaabbb" ;
  string s = "eceba" ;
 
- cout << lengthOfLongestSubstringTwoDistinct(s) << endl;
+ cout << lengthOfLongestSubstringKDistinct(s,2) << endl;
 
 
 

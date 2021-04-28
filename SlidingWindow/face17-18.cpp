@@ -5,22 +5,22 @@
 
 
 /*
-å‡è®¾ä½ æœ‰ä¸¤ä¸ªæ•°ç»„ï¼Œä¸€ä¸ªé•¿ä¸€ä¸ªçŸ­ï¼ŒçŸ­çš„å…ƒç´ å‡ä¸ç›¸åŒã€‚æ‰¾åˆ°é•¿æ•°ç»„ä¸­åŒ…å«çŸ­æ•°ç»„æ‰€æœ‰çš„å…ƒç´ çš„æœ€çŸ­å­æ•°ç»„ï¼Œå…¶å‡ºçŽ°é¡ºåºæ— å…³ç´§è¦ã€‚
+¼ÙÉèÄãÓÐÁ½¸öÊý×é£¬Ò»¸ö³¤Ò»¸ö¶Ì£¬¶ÌµÄÔªËØ¾ù²»ÏàÍ¬¡£ÕÒµ½³¤Êý×éÖÐ°üº¬¶ÌÊý×éËùÓÐµÄÔªËØµÄ×î¶Ì×ÓÊý×é£¬Æä³öÏÖË³ÐòÎÞ¹Ø½ôÒª¡£
 
-è¿”å›žæœ€çŸ­å­æ•°ç»„çš„å·¦ç«¯ç‚¹å’Œå³ç«¯ç‚¹ï¼Œå¦‚æœ‰å¤šä¸ªæ»¡è¶³æ¡ä»¶çš„å­æ•°ç»„ï¼Œè¿”å›žå·¦ç«¯ç‚¹æœ€å°çš„ä¸€ä¸ªã€‚è‹¥ä¸å­˜åœ¨ï¼Œè¿”å›žç©ºæ•°ç»„ã€‚
+·µ»Ø×î¶Ì×ÓÊý×éµÄ×ó¶ËµãºÍÓÒ¶Ëµã£¬ÈçÓÐ¶à¸öÂú×ãÌõ¼þµÄ×ÓÊý×é£¬·µ»Ø×ó¶Ëµã×îÐ¡µÄÒ»¸ö¡£Èô²»´æÔÚ£¬·µ»Ø¿ÕÊý×é¡£
 
-ç¤ºä¾‹ 1:
+Ê¾Àý 1:
 
-è¾“å…¥:
+ÊäÈë:
 big = [7,5,9,0,2,1,3,5,7,9,1,1,5,8,8,9,7]
 small = [1,5,9]
-è¾“å‡º: [7,10]
-ç¤ºä¾‹ 2:
+Êä³ö: [7,10]
+Ê¾Àý 2:
 
-è¾“å…¥:
+ÊäÈë:
 big = [1,2,3]
 small = [4]
-è¾“å‡º: []
+Êä³ö: []
 */
 
 
@@ -31,28 +31,28 @@ vector<int> shortestSeq(vector<int>& big, vector<int>& small)
 {
     int len = big.size();
     vector<int> res;
-    //needï¼šè®°å½•æ»‘åŠ¨çª—å£å†…éœ€è¦è¦†ç›–çš„æ•°å­—ï¼ŒåŠå…¶å¯¹åº”çš„ä¸ªæ•°
+    //need£º¼ÇÂ¼»¬¶¯´°¿ÚÄÚÐèÒª¸²¸ÇµÄÊý×Ö£¬¼°Æä¶ÔÓ¦µÄ¸öÊý
     unordered_map<int, int> need;
 	unordered_map<int, int> window;
-	//é¢„è®¾æ»¡è¶³æ¡ä»¶çš„æœ€å°é•¿åº¦,ç”¨æœ€å¤§å€¼ï¼Œé¿å… bigé•¿åº¦ä¸Žsmallé•¿åº¦ä¸€è‡´å¯¼è‡´ä¸èµ‹å€¼
+	//Ô¤ÉèÂú×ãÌõ¼þµÄ×îÐ¡³¤¶È,ÓÃ×î´óÖµ£¬±ÜÃâ big³¤¶ÈÓësmall³¤¶ÈÒ»ÖÂµ¼ÖÂ²»¸³Öµ
 	int minLen = INT_MAX;
-    // æ»¡è¶³æ¡ä»¶ä¸ªæ•°
+    // Âú×ãÌõ¼þ¸öÊý
 	int okCount = 0;
 	
-    // æ•°æ®é¢„å¤„ç†ï¼šç»Ÿè®¡éœ€è¦è¦†ç›–çš„å­—ç¬¦æœ‰å¤šå°‘ä¸ª
+    // Êý¾ÝÔ¤´¦Àí£ºÍ³¼ÆÐèÒª¸²¸ÇµÄ×Ö·ûÓÐ¶àÉÙ¸ö
     for (auto& e : small) 
 	{
         need[e]++;
     }
 
-    // æ»‘åŠ¨çª—å£ï¼šlæŒ‡å‘çª—å£å·¦è¾¹ç•Œï¼ŒræŒ‡å‘çª—å£å³è¾¹ç•Œ
+    // »¬¶¯´°¿Ú£ºlÖ¸Ïò´°¿Ú×ó±ß½ç£¬rÖ¸Ïò´°¿ÚÓÒ±ß½ç
     int left = 0;
 	int right = 0;
     for (right = 0; right < len; ++right) 
 	{
 		int tmp = big[right];
 		window[tmp]++;
-        // needä¸­å­˜åœ¨å³å€¼&&å½“å‰è¯¥å€¼çš„éœ€è¦çš„ä¸ªæ•°=1ï¼Œdiffå‡ä¸€
+        // needÖÐ´æÔÚÓÒÖµ&&µ±Ç°¸ÃÖµµÄÐèÒªµÄ¸öÊý=1£¬diff¼õÒ»
         if (need.find(tmp) != need.end()) 
         {
         	if(need[tmp] == window[tmp])
@@ -61,16 +61,14 @@ vector<int> shortestSeq(vector<int>& big, vector<int>& small)
 			}
 		}
 
-        // å¦‚æžœokCountæ»¡è¶³æ¡ä»¶ï¼Œæ”¶ç¼©å·¦çª—å£
+        // Èç¹ûokCountÂú×ãÌõ¼þ£¬ÊÕËõ×ó´°¿Ú
         while (okCount == small.size()) 
 		{
-				cout << "left :" << left << endl;
-				cout << "right :" << right << endl;
-			/*å…ˆèµ‹å€¼ç›®å‰æ»¡è¶³çš„left,right,*/
+			/*ÏÈ¸³ÖµÄ¿Ç°Âú×ãµÄleft,right,*/
             if (right - left+1  < minLen) 
 			{
                 minLen = right - left+1 ;
-				/*å…ˆèµ‹å€¼å½“å‰æ»¡è¶³æ¡ä»¶çš„æš‚æ—¶å€¼ï¼Œè®°ä½å¦‚æ­¤èµ‹å€¼æ–¹å¼*/
+				/*ÏÈ¸³Öµµ±Ç°Âú×ãÌõ¼þµÄÔÝÊ±Öµ£¬¼Ç×¡Èç´Ë¸³Öµ·½Ê½*/
                 res = {left, right};
 				
             }
@@ -78,13 +76,13 @@ vector<int> shortestSeq(vector<int>& big, vector<int>& small)
 			int tmp = big[left];
             if (need.find(tmp) != need.end()) 
             {
-            	/*okCountæ›´å˜*/
+            	/*okCount¸ü±ä*/
 				if(need[tmp] == window[tmp])
 				{
 					okCount--;
 				}
 			}
-			/*ä¸€å®šè¦æ‰§è¡Œ*/
+			/*Ò»¶¨ÒªÖ´ÐÐ*/
 			window[tmp]--;
             left++;
         }

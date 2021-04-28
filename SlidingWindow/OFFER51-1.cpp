@@ -6,6 +6,34 @@
 using namespace std;
 
 
+/*
+¸ø¶¨Ò»¸öÊı×é nums ºÍ»¬¶¯´°¿ÚµÄ´óĞ¡ k£¬ÇëÕÒ³öËùÓĞ»¬¶¯´°¿ÚÀïµÄ×î´óÖµ¡£
+
+Ê¾Àı:
+
+ÊäÈë: nums = [1,3,-1,-3,5,3,6,7], ºÍ k = 3
+Êä³ö: [3,3,5,5,6,7] 
+½âÊÍ: 
+
+  »¬¶¯´°¿ÚµÄÎ»ÖÃ                ×î´óÖµ
+---------------               -----
+[1  3  -1] -3  5  3  6  7       3
+ 1 [3  -1  -3] 5  3  6  7       3
+ 1  3 [-1  -3  5] 3  6  7       5
+ 1  3  -1 [-3  5  3] 6  7       5
+ 1  3  -1  -3 [5  3  6] 7       6
+ 1  3  -1  -3  5 [3  6  7]      7
+?
+
+ÌáÊ¾£º
+
+Äã¿ÉÒÔ¼ÙÉè k ×ÜÊÇÓĞĞ§µÄ£¬ÔÚÊäÈëÊı×é²»Îª¿ÕµÄÇé¿öÏÂ£¬1 ¡Ü k ¡Ü?ÊäÈëÊı×éµÄ´óĞ¡¡£
+
+À´Ô´£ºÁ¦¿Û£¨LeetCode£©
+Á´½Ó£ºhttps://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof
+Öø×÷È¨¹éÁì¿ÛÍøÂçËùÓĞ¡£ÉÌÒµ×ªÔØÇëÁªÏµ¹Ù·½ÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+
+*/
 
 
 vector<int> maxSlidingWindow(vector<int>& nums, int k) 
@@ -14,12 +42,12 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k)
 
 
 	int len = nums.size();
-	if(len == 0)								//ä¸ºç©º ç›´æ¥è¿”å›ç©ºvector
+	if(len == 0)								//Îª¿Õ Ö±½Ó·µ»Ø¿Õvector
 		return ret;
 
 	for( int i=0;i < len - k+1;i++)
 	{
-		int max = nums[i];						//è¦åœ¨å¤–é¢èµ‹å€¼ç¬¬ä¸€ä¸ªå€¼
+		int max = nums[i];						//ÒªÔÚÍâÃæ¸³ÖµµÚÒ»¸öÖµ
 		for(int j=i;j<=i+k -1;j++)
 		{
 			if(nums[j] > max)
