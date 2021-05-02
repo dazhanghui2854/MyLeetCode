@@ -8,40 +8,40 @@ using namespace std;
 
 
 /*
-¸ø¶¨Ò»¸ö×Ö·û´®£¬ÇëÄãÕÒ³öÆäÖÐ²»º¬ÓÐÖØ¸´×Ö·ûµÄ?×î³¤×Ó´®?µÄ³¤¶È¡£
+ç»™å®šä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¯·ä½ æ‰¾å‡ºå…¶ä¸­ä¸å«æœ‰é‡å¤å­—ç¬¦çš„Â æœ€é•¿å­ä¸²Â çš„é•¿åº¦ã€‚
 
-?
+Â 
 
-Ê¾Àý?1:
+ç¤ºä¾‹Â 1:
 
-ÊäÈë: s = "abcabcbb"
-Êä³ö: 3 
-½âÊÍ: ÒòÎªÎÞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ "abc"£¬ËùÒÔÆä³¤¶ÈÎª 3¡£
-Ê¾Àý 2:
+è¾“å…¥: s = "abcabcbb"
+è¾“å‡º: 3 
+è§£é‡Š: å› ä¸ºæ— é‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²æ˜¯ "abc"ï¼Œæ‰€ä»¥å…¶é•¿åº¦ä¸º 3ã€‚
+ç¤ºä¾‹ 2:
 
-ÊäÈë: s = "bbbbb"
-Êä³ö: 1
-½âÊÍ: ÒòÎªÎÞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ "b"£¬ËùÒÔÆä³¤¶ÈÎª 1¡£
-Ê¾Àý 3:
+è¾“å…¥: s = "bbbbb"
+è¾“å‡º: 1
+è§£é‡Š: å› ä¸ºæ— é‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²æ˜¯ "b"ï¼Œæ‰€ä»¥å…¶é•¿åº¦ä¸º 1ã€‚
+ç¤ºä¾‹ 3:
 
-ÊäÈë: s = "pwwkew"
-Êä³ö: 3
-½âÊÍ: ÒòÎªÎÞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ?"wke"£¬ËùÒÔÆä³¤¶ÈÎª 3¡£
-?    Çë×¢Òâ£¬ÄãµÄ´ð°¸±ØÐëÊÇ ×Ó´® µÄ³¤¶È£¬"pwke"?ÊÇÒ»¸ö×ÓÐòÁÐ£¬²»ÊÇ×Ó´®¡£
-Ê¾Àý 4:
+è¾“å…¥: s = "pwwkew"
+è¾“å‡º: 3
+è§£é‡Š: å› ä¸ºæ— é‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²æ˜¯Â "wke"ï¼Œæ‰€ä»¥å…¶é•¿åº¦ä¸º 3ã€‚
+Â     è¯·æ³¨æ„ï¼Œä½ çš„ç­”æ¡ˆå¿…é¡»æ˜¯ å­ä¸² çš„é•¿åº¦ï¼Œ"pwke"Â æ˜¯ä¸€ä¸ªå­åºåˆ—ï¼Œä¸æ˜¯å­ä¸²ã€‚
+ç¤ºä¾‹ 4:
 
-ÊäÈë: s = ""
-Êä³ö: 0
-?
+è¾“å…¥: s = ""
+è¾“å‡º: 0
+Â 
 
-ÌáÊ¾£º
+æç¤ºï¼š
 
 0 <= s.length <= 5 * 104
-s?ÓÉÓ¢ÎÄ×ÖÄ¸¡¢Êý×Ö¡¢·ûºÅºÍ¿Õ¸ñ×é³É
+sÂ ç”±è‹±æ–‡å­—æ¯ã€æ•°å­—ã€ç¬¦å·å’Œç©ºæ ¼ç»„æˆ
 
-À´Ô´£ºÁ¦¿Û£¨LeetCode£©
-Á´½Ó£ºhttps://leetcode-cn.com/problems/longest-substring-without-repeating-characters
-Öø×÷È¨¹éÁì¿ÛÍøÂçËùÓÐ¡£ÉÌÒµ×ªÔØÇëÁªÏµ¹Ù·½ÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+æ¥æºï¼šåŠ›æ‰£ï¼ˆLeetCodeï¼‰
+é“¾æŽ¥ï¼šhttps://leetcode-cn.com/problems/longest-substring-without-repeating-characters
+è‘—ä½œæƒå½’é¢†æ‰£ç½‘ç»œæ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»å®˜æ–¹æŽˆæƒï¼Œéžå•†ä¸šè½¬è½½è¯·æ³¨æ˜Žå‡ºå¤„ã€‚
 
 */
 
@@ -55,23 +55,23 @@ int lengthOfLongestSubstring(string s)
 	unordered_set<char> st;
 
 	int left = 0;
-	int right = 0;				   //¿ªÊ¼´°¿ÚÃ»Êý×Ö
+	int right = 0;				
 
 	for(int left = 0; left < len; left++)
 	{
 		if(left!=0)
 		{
 			char cl = s[left -1];
-			st.erase(cl);	   //²Á³ý³ö×ó±ß½çµÄsetÖµ,
+			st.erase(cl);	  
 		}
 
-		/*ÒÆ¶¯ÓÒ´°¿Ú*/
-		while(right < len  ) //??Ê±ºòÒ»Ö±ÒÆ¶¯ÓÒ±ß½ç
+
+		while(right < len  ) 
 		{ 
 			char cr = s[right] ;
 			if(st.count(cr)==0)
 			{
-				 st.insert(cr) ; //°ÑºóÃæÖµ²åÈë
+				 st.insert(cr) ; 
 				 right++;
 			}
 			else

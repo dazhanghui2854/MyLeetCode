@@ -5,21 +5,26 @@
 
 
 /*
-¸ø¶¨Ò»¸öÕûÊıÊı×éºÍÒ»¸öÕûÊı?k£¬ÅĞ¶ÏÊı×éÖĞÊÇ·ñ´æÔÚÁ½¸ö²»Í¬µÄË÷Òı?i?ºÍ?j£¬Ê¹µÃ?nums [i] = nums [j]£¬²¢ÇÒ i ºÍ j?µÄ²îµÄ ¾ø¶ÔÖµ ÖÁ¶àÎª k¡£
+ç»™å®šä¸€ä¸ªæ•´æ•°æ•°ç»„å’Œä¸€ä¸ªæ•´æ•°Â kï¼Œåˆ¤æ–­æ•°ç»„ä¸­æ˜¯å¦å­˜åœ¨ä¸¤ä¸ªä¸åŒçš„ç´¢å¼•Â iÂ å’ŒÂ jï¼Œä½¿å¾—Â nums [i] = nums [j]ï¼Œå¹¶ä¸” i å’Œ jÂ çš„å·®çš„ ç»å¯¹å€¼ è‡³å¤šä¸º kã€‚
 
-?
-Ê¾Àı?1:
+Â 
 
-ÊäÈë: nums = [1,2,3,1], k = 3
-Êä³ö: true
-Ê¾Àı 2:
+ç¤ºä¾‹Â 1:
 
-ÊäÈë: nums = [1,0,1,1], k = 1
-Êä³ö: true
-Ê¾Àı 3:
+è¾“å…¥: nums = [1,2,3,1], k = 3
+è¾“å‡º: true
+ç¤ºä¾‹ 2:
 
-ÊäÈë: nums = [1,2,3,1,2,3], k = 2
-Êä³ö: false
+è¾“å…¥: nums = [1,0,1,1], k = 1
+è¾“å‡º: true
+ç¤ºä¾‹ 3:
+
+è¾“å…¥: nums = [1,2,3,1,2,3], k = 2
+è¾“å‡º: false
+
+æ¥æºï¼šåŠ›æ‰£ï¼ˆLeetCodeï¼‰
+é“¾æ¥ï¼šhttps://leetcode-cn.com/problems/contains-duplicate-ii
+è‘—ä½œæƒå½’é¢†æ‰£ç½‘ç»œæ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»å®˜æ–¹æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚
 
 */
 
@@ -29,7 +34,6 @@
 using namespace std;
 
 
-//ÅĞ¶ÏÊı×éÖĞÊÇ·ñ´æÔÚÖØ¸´Êı×é
 bool containsNearbyDuplicate(vector<int>& nums, int k) 
 {
 	int len= nums.size();
@@ -37,7 +41,7 @@ bool containsNearbyDuplicate(vector<int>& nums, int k)
 	int left = 0;
 	int right = 0;
 	unordered_map<int,int> st;
-	/*Ò»Ö±ÓÒÒÆ*/
+
 	while(right < len)
 	{
 		int tmp = nums[right];
@@ -52,23 +56,22 @@ bool containsNearbyDuplicate(vector<int>& nums, int k)
 		}
 		else
 		{
-			/*Èç¹ûµ±Ç°´°¿Ú´óĞ¡»¹Ã»¹ıÁÙ½ç*/
 			if(right - left < k )
 			{
 				right++;
 			}
-			else //¹ıÁË»òÕßÒÑ´ïµ½ÁÙ½ç£¬Ò»Ö±ÒÆ¶¯×ó´°¿ÚÖ±µ½Âú×ã
+			else 
 			{
 				while(right - left > k || right - left == k)
 				{
 					int tmp = nums[left];
 					st[tmp]--;
-					/*×îºÃ¼ÓÉÏ*/
+				
 					if(st[tmp ==0])
 						st.erase(tmp);
 					left++;
 				}
-				/*rightĞèÒ»Ö±ÓÒÒÆ*/
+			
 				right++;
 			}
 		}

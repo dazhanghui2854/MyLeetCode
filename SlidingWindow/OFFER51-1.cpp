@@ -7,15 +7,15 @@ using namespace std;
 
 
 /*
-¸ø¶¨Ò»¸öÊý×é nums ºÍ»¬¶¯´°¿ÚµÄ´óÐ¡ k£¬ÇëÕÒ³öËùÓÐ»¬¶¯´°¿ÚÀïµÄ×î´óÖµ¡£
+ç»™å®šä¸€ä¸ªæ•°ç»„ nums å’Œæ»‘åŠ¨çª—å£çš„å¤§å° kï¼Œè¯·æ‰¾å‡ºæ‰€æœ‰æ»‘åŠ¨çª—å£é‡Œçš„æœ€å¤§å€¼ã€‚
 
-Ê¾Àý:
+ç¤ºä¾‹:
 
-ÊäÈë: nums = [1,3,-1,-3,5,3,6,7], ºÍ k = 3
-Êä³ö: [3,3,5,5,6,7] 
-½âÊÍ: 
+è¾“å…¥: nums = [1,3,-1,-3,5,3,6,7], å’Œ k = 3
+è¾“å‡º: [3,3,5,5,6,7] 
+è§£é‡Š: 
 
-  »¬¶¯´°¿ÚµÄÎ»ÖÃ                ×î´óÖµ
+  æ»‘åŠ¨çª—å£çš„ä½ç½®                æœ€å¤§å€¼
 ---------------               -----
 [1  3  -1] -3  5  3  6  7       3
  1 [3  -1  -3] 5  3  6  7       3
@@ -23,15 +23,15 @@ using namespace std;
  1  3  -1 [-3  5  3] 6  7       5
  1  3  -1  -3 [5  3  6] 7       6
  1  3  -1  -3  5 [3  6  7]      7
-?
+Â 
 
-ÌáÊ¾£º
+æç¤ºï¼š
 
-Äã¿ÉÒÔ¼ÙÉè k ×ÜÊÇÓÐÐ§µÄ£¬ÔÚÊäÈëÊý×é²»Îª¿ÕµÄÇé¿öÏÂ£¬1 ¡Ü k ¡Ü?ÊäÈëÊý×éµÄ´óÐ¡¡£
+ä½ å¯ä»¥å‡è®¾ k æ€»æ˜¯æœ‰æ•ˆçš„ï¼Œåœ¨è¾“å…¥æ•°ç»„ä¸ä¸ºç©ºçš„æƒ…å†µä¸‹ï¼Œ1 â‰¤ k â‰¤Â è¾“å…¥æ•°ç»„çš„å¤§å°ã€‚
 
-À´Ô´£ºÁ¦¿Û£¨LeetCode£©
-Á´½Ó£ºhttps://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof
-Öø×÷È¨¹éÁì¿ÛÍøÂçËùÓÐ¡£ÉÌÒµ×ªÔØÇëÁªÏµ¹Ù·½ÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+æ¥æºï¼šåŠ›æ‰£ï¼ˆLeetCodeï¼‰
+é“¾æŽ¥ï¼šhttps://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof
+è‘—ä½œæƒå½’é¢†æ‰£ç½‘ç»œæ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»å®˜æ–¹æŽˆæƒï¼Œéžå•†ä¸šè½¬è½½è¯·æ³¨æ˜Žå‡ºå¤„ã€‚
 
 */
 
@@ -42,12 +42,12 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k)
 
 
 	int len = nums.size();
-	if(len == 0)								//Îª¿Õ Ö±½Ó·µ»Ø¿Õvector
+	if(len == 0)								//
 		return ret;
 
 	for( int i=0;i < len - k+1;i++)
 	{
-		int max = nums[i];						//ÒªÔÚÍâÃæ¸³ÖµµÚÒ»¸öÖµ
+		int max = nums[i];						//
 		for(int j=i;j<=i+k -1;j++)
 		{
 			if(nums[j] > max)

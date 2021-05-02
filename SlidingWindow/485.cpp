@@ -9,25 +9,25 @@
 using namespace std;
 
 /*
-¸ø¶¨Ò»¸ö¶þ½øÖÆÊý×é£¬ ¼ÆËãÆäÖÐ×î´óÁ¬Ðø 1 µÄ¸öÊý¡£
+ç»™å®šä¸€ä¸ªäºŒè¿›åˆ¶æ•°ç»„ï¼Œ è®¡ç®—å…¶ä¸­æœ€å¤§è¿žç»­ 1 çš„ä¸ªæ•°ã€‚
 
-?
+Â 
 
-Ê¾Àý£º
+ç¤ºä¾‹ï¼š
 
-ÊäÈë£º[1,1,0,1,1,1]
-Êä³ö£º3
-½âÊÍ£º¿ªÍ·µÄÁ½Î»ºÍ×îºóµÄÈýÎ»¶¼ÊÇÁ¬Ðø 1 £¬ËùÒÔ×î´óÁ¬Ðø 1 µÄ¸öÊýÊÇ 3.
-?
+è¾“å…¥ï¼š[1,1,0,1,1,1]
+è¾“å‡ºï¼š3
+è§£é‡Šï¼šå¼€å¤´çš„ä¸¤ä½å’Œæœ€åŽçš„ä¸‰ä½éƒ½æ˜¯è¿žç»­ 1 ï¼Œæ‰€ä»¥æœ€å¤§è¿žç»­ 1 çš„ä¸ªæ•°æ˜¯ 3.
+Â 
 
-ÌáÊ¾£º
+æç¤ºï¼š
 
-ÊäÈëµÄÊý×éÖ»°üº¬?0 ºÍ 1 ¡£
-ÊäÈëÊý×éµÄ³¤¶ÈÊÇÕýÕûÊý£¬ÇÒ²»³¬¹ý 10,000¡£
+è¾“å…¥çš„æ•°ç»„åªåŒ…å«Â 0 å’Œ 1 ã€‚
+è¾“å…¥æ•°ç»„çš„é•¿åº¦æ˜¯æ­£æ•´æ•°ï¼Œä¸”ä¸è¶…è¿‡ 10,000ã€‚
 
-À´Ô´£ºÁ¦¿Û£¨LeetCode£©
-Á´½Ó£ºhttps://leetcode-cn.com/problems/max-consecutive-ones
-Öø×÷È¨¹éÁì¿ÛÍøÂçËùÓÐ¡£ÉÌÒµ×ªÔØÇëÁªÏµ¹Ù·½ÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+æ¥æºï¼šåŠ›æ‰£ï¼ˆLeetCodeï¼‰
+é“¾æŽ¥ï¼šhttps://leetcode-cn.com/problems/max-consecutive-ones
+è‘—ä½œæƒå½’é¢†æ‰£ç½‘ç»œæ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»å®˜æ–¹æŽˆæƒï¼Œéžå•†ä¸šè½¬è½½è¯·æ³¨æ˜Žå‡ºå¤„ã€‚
 
 */
 
@@ -41,14 +41,16 @@ int langestnumber(vector<int>& arr)
 	unordered_map<int,int> st;
 
 	for(int i=0;i < len ;i++)
-	{
+	{
+
 		tmp = arr[i] ;
 		st[tmp]++ ;
 	}
 
 	for(int i=1;i <= len ;i++)
-	{
-		if(st.count(i) ==0)					//¸ÃkeyÔÚ¹þÏ£±íÖÐ
+	{
+
+		if(st.count(i) ==0)			
 		{
 			ret.push_back(i);
 		}
@@ -72,7 +74,8 @@ int main()
 
 	int len = ret.size();
 
-	for(int i=0 ; i < len;i++)
+	for(int i=0 ; i < len;i++)
+
 	{
 		printf("%d\n",ret[i]);
 	}

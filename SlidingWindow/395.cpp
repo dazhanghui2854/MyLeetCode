@@ -9,31 +9,31 @@ using namespace std;
 
 
 /*
-¸øÄãÒ»¸ö×Ö·û´® s ºÍÒ»¸öÕûÊý k £¬ÇëÄãÕÒ³ö s ÖÐµÄ×î³¤×Ó´®£¬?ÒªÇó¸Ã×Ó´®ÖÐµÄÃ¿Ò»×Ö·û³öÏÖ´ÎÊý¶¼²»ÉÙÓÚ k ¡£·µ»ØÕâÒ»×Ó´®µÄ³¤¶È¡£
+ç»™ä½ ä¸€ä¸ªå­—ç¬¦ä¸² s å’Œä¸€ä¸ªæ•´æ•° k ï¼Œè¯·ä½ æ‰¾å‡º s ä¸­çš„æœ€é•¿å­ä¸²ï¼ŒÂ è¦æ±‚è¯¥å­ä¸²ä¸­çš„æ¯ä¸€å­—ç¬¦å‡ºçŽ°æ¬¡æ•°éƒ½ä¸å°‘äºŽ k ã€‚è¿”å›žè¿™ä¸€å­ä¸²çš„é•¿åº¦ã€‚
 
-?
+Â 
 
-Ê¾Àý 1£º
+ç¤ºä¾‹ 1ï¼š
 
-ÊäÈë£ºs = "aaabb", k = 3
-Êä³ö£º3
-½âÊÍ£º×î³¤×Ó´®Îª "aaa" £¬ÆäÖÐ 'a' ÖØ¸´ÁË 3 ´Î¡£
-Ê¾Àý 2£º
+è¾“å…¥ï¼šs = "aaabb", k = 3
+è¾“å‡ºï¼š3
+è§£é‡Šï¼šæœ€é•¿å­ä¸²ä¸º "aaa" ï¼Œå…¶ä¸­ 'a' é‡å¤äº† 3 æ¬¡ã€‚
+ç¤ºä¾‹ 2ï¼š
 
-ÊäÈë£ºs = "ababbc", k = 2
-Êä³ö£º5
-½âÊÍ£º×î³¤×Ó´®Îª "ababb" £¬ÆäÖÐ 'a' ÖØ¸´ÁË 2 ´Î£¬ 'b' ÖØ¸´ÁË 3 ´Î¡£
-?
+è¾“å…¥ï¼šs = "ababbc", k = 2
+è¾“å‡ºï¼š5
+è§£é‡Šï¼šæœ€é•¿å­ä¸²ä¸º "ababb" ï¼Œå…¶ä¸­ 'a' é‡å¤äº† 2 æ¬¡ï¼Œ 'b' é‡å¤äº† 3 æ¬¡ã€‚
+Â 
 
-ÌáÊ¾£º
+æç¤ºï¼š
 
 1 <= s.length <= 104
-s ½öÓÉÐ¡Ð´Ó¢ÎÄ×ÖÄ¸×é³É
+s ä»…ç”±å°å†™è‹±æ–‡å­—æ¯ç»„æˆ
 1 <= k <= 105
 
-À´Ô´£ºÁ¦¿Û£¨LeetCode£©
-Á´½Ó£ºhttps://leetcode-cn.com/problems/longest-substring-with-at-least-k-repeating-characters
-Öø×÷È¨¹éÁì¿ÛÍøÂçËùÓÐ¡£ÉÌÒµ×ªÔØÇëÁªÏµ¹Ù·½ÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+æ¥æºï¼šåŠ›æ‰£ï¼ˆLeetCodeï¼‰
+é“¾æŽ¥ï¼šhttps://leetcode-cn.com/problems/longest-substring-with-at-least-k-repeating-characters
+è‘—ä½œæƒå½’é¢†æ‰£ç½‘ç»œæ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»å®˜æ–¹æŽˆæƒï¼Œéžå•†ä¸šè½¬è½½è¯·æ³¨æ˜Žå‡ºå¤„ã€‚
 
 */
 
@@ -67,7 +67,7 @@ int longestSubstring(string s, int k)
 				okCount++;
 			}
 			right++;
-			/*³¬³ö²»Í¬¸öÊý£¬×ó±ß½çÓÒÒÆ*/
+
 			while(diffCount > i)
 			{
 				int tmp = s[left] - 'a';

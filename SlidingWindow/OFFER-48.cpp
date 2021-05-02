@@ -6,30 +6,30 @@ using namespace std;
 
 
 /*
-Çë´Ó×Ö·û´®ÖÐÕÒ³öÒ»¸ö×î³¤µÄ²»°üº¬ÖØ¸´×Ö·ûµÄ×Ó×Ö·û´®£¬¼ÆËã¸Ã×î³¤×Ó×Ö·û´®µÄ³¤¶È¡£
+è¯·ä»Žå­—ç¬¦ä¸²ä¸­æ‰¾å‡ºä¸€ä¸ªæœ€é•¿çš„ä¸åŒ…å«é‡å¤å­—ç¬¦çš„å­å­—ç¬¦ä¸²ï¼Œè®¡ç®—è¯¥æœ€é•¿å­å­—ç¬¦ä¸²çš„é•¿åº¦ã€‚
 
-?
+Â 
 
-Ê¾Àý?1:
+ç¤ºä¾‹Â 1:
 
-ÊäÈë: "abcabcbb"
-Êä³ö: 3 
-½âÊÍ: ÒòÎªÎÞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ "abc"£¬ËùÒÔÆä³¤¶ÈÎª 3¡£
-Ê¾Àý 2:
+è¾“å…¥: "abcabcbb"
+è¾“å‡º: 3 
+è§£é‡Š: å› ä¸ºæ— é‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²æ˜¯ "abc"ï¼Œæ‰€ä»¥å…¶é•¿åº¦ä¸º 3ã€‚
+ç¤ºä¾‹ 2:
 
-ÊäÈë: "bbbbb"
-Êä³ö: 1
-½âÊÍ: ÒòÎªÎÞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ "b"£¬ËùÒÔÆä³¤¶ÈÎª 1¡£
-Ê¾Àý 3:
+è¾“å…¥: "bbbbb"
+è¾“å‡º: 1
+è§£é‡Š: å› ä¸ºæ— é‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²æ˜¯ "b"ï¼Œæ‰€ä»¥å…¶é•¿åº¦ä¸º 1ã€‚
+ç¤ºä¾‹ 3:
 
-ÊäÈë: "pwwkew"
-Êä³ö: 3
-½âÊÍ: ÒòÎªÎÞÖØ¸´×Ö·ûµÄ×î³¤×Ó´®ÊÇ?"wke"£¬ËùÒÔÆä³¤¶ÈÎª 3¡£
-?    Çë×¢Òâ£¬ÄãµÄ´ð°¸±ØÐëÊÇ ×Ó´® µÄ³¤¶È£¬"pwke"?ÊÇÒ»¸ö×ÓÐòÁÐ£¬²»ÊÇ×Ó´®¡£
+è¾“å…¥: "pwwkew"
+è¾“å‡º: 3
+è§£é‡Š: å› ä¸ºæ— é‡å¤å­—ç¬¦çš„æœ€é•¿å­ä¸²æ˜¯Â "wke"ï¼Œæ‰€ä»¥å…¶é•¿åº¦ä¸º 3ã€‚
+Â     è¯·æ³¨æ„ï¼Œä½ çš„ç­”æ¡ˆå¿…é¡»æ˜¯ å­ä¸² çš„é•¿åº¦ï¼Œ"pwke"Â æ˜¯ä¸€ä¸ªå­åºåˆ—ï¼Œä¸æ˜¯å­ä¸²ã€‚
 
-À´Ô´£ºÁ¦¿Û£¨LeetCode£©
-Á´½Ó£ºhttps://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof
-Öø×÷È¨¹éÁì¿ÛÍøÂçËùÓÐ¡£ÉÌÒµ×ªÔØÇëÁªÏµ¹Ù·½ÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+æ¥æºï¼šåŠ›æ‰£ï¼ˆLeetCodeï¼‰
+é“¾æŽ¥ï¼šhttps://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof
+è‘—ä½œæƒå½’é¢†æ‰£ç½‘ç»œæ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»å®˜æ–¹æŽˆæƒï¼Œéžå•†ä¸šè½¬è½½è¯·æ³¨æ˜Žå‡ºå¤„ã€‚
 
 */
 
@@ -63,7 +63,7 @@ int lengthOfLongestSubstring(string s)
 			{
 				right++;
 			}
-			else	//ÓÒ±ß½ç²»ÖØÍ·À´£¬²»Âú×ãµÄpop´°¿Ú£¬ÒÆ¶¯×ó´°¿Ú
+			else	//
 			{
 				st[c]--;
 				break;
