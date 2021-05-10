@@ -2,62 +2,87 @@
 #include <vector>
 #include <stdio.h>
 
+/*
+在MATLAB中，有一个非常有用的函数 reshape，它可以将一个矩阵重塑为另一个大小不同的新矩阵，但保留其原始数据。
 
+给出一个由二维数组表示的矩阵，以及两个正整数r和c，分别表示想要的重构的矩阵的行数和列数。
+
+重构后的矩阵需要将原始矩阵的所有元素以相同的行遍历顺序填充。
+
+如果具有给定参数的reshape操作是可行且合理的，则输出新的重塑矩阵；否则，输出原始矩阵。
+
+示例 1:
+
+输入: 
+nums = 
+[[1,2],
+ [3,4]]
+r = 1, c = 4
+输出: 
+[[1,2,3,4]]
+解释:
+行遍历nums的结果是 [1,2,3,4]。新的矩阵是 1 * 4 矩阵, 用之前的元素值一行一行填充新矩阵。
+示例 2:
+
+输入: 
+nums = 
+[[1,2],
+ [3,4]]
+r = 2, c = 4
+输出: 
+[[1,2],
+ [3,4]]
+解释:
+没有办法将 2 * 2 矩阵转化为 2 * 4 矩阵。 所以输出原矩阵。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/reshape-the-matrix
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+*/
 
 using namespace std;
 
-
-
-//ԭʼ���� תΪ r*c�Ƿ��У�����ת�����з���ԭ����
-vector<vector<int>> reshape(vector<vector<int>> & matrix ,int r, int c)
+vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) 
 {
+	int row = mat.size();
+	int col = mat[0].size();
 
-	int rows = matrix.size();			//?��
-	int cols = matrix[0].size();		//?��
+	/*创建r行c列初值为0矩阵*/
+	vector<vector<int>> ret(r,vector<int>(c,0));
 
-	int index = 0;
-	int index1 = 0;
+	/*矩阵宽*高 元素个数不一致，直接return*/
+	if(row * col != r*c)
+		return mat;
 
-
-	if(rows * cols != r * c)
+	vector<int> st;
+	/*遍历矩阵，将元素push至st*/
+	for(int i=0;i < row;i++)
 	{
-		return matrix;
+		for(int j=0;j<col;j++)
+		{
+			int tmp = mat[i][j];
+			st.push_back(tmp);
+		}
 	}
 
-	vector<int> tmp(rows * cols) ;
-	vector<vector<int>> res(r,vector<int>(c,0));				//����ת������ռ䣬��ʼֵ0
-	for(int i = 0 ;i < rows ;i++)
+	/*遍历ret,将st中值逐个赋值至ret中*/
+	int index = 0;
+	for(int i = 0; i< r ;i++)
 	{
-		for(int j=0;j < cols;j++)
+		for(int j=0 ; j< c;j++)
 		{
-			tmp[index] = matrix[i][j] ; 
+			ret[i][j] = st[index];
 			index++;
 		}
 	}
-
-	for(int i = 0 ;i < r ;i++)
-	{
-		for(int j=0;j < c;j++)
-		{
-			res[i][j] = tmp[index1] ; 
-			index1++;
-		}
-	}
-
-	
-	return res;
+	return ret;
 }
-
-
-
 
 
 int main()
 {
 
 	int index = 0;
-
-
 	vector<vector<int>> arr(3,vector<int>(4,0));
 	for(int i =0 ;i < 3 ;i++)
 	{

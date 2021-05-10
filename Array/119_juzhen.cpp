@@ -9,18 +9,18 @@ using namespace std;
 
 
 
-//·µ»ØÑî»ÔÈı½ÇµÄµÚkĞĞ,
+//è¿”å›æ¨è¾‰ä¸‰è§’çš„ç¬¬kè¡Œ,
 vector<int> yanghuik(int index)
 {
 
-	int len = index + 1	;				//indexÊÇ´´½¨¶àÉÙĞĞµÄÑî»ÔÈı½Ç
-	vector<vector<int>> st(len);		//·ÖÅäÑî»ÔÈı½ÇÄÚ´æĞĞ
+	int len = index + 1	;				//indexæ˜¯åˆ›å»ºå¤šå°‘è¡Œçš„æ¨è¾‰ä¸‰è§’
+	vector<vector<int>> st(len);		//åˆ†é…æ¨è¾‰ä¸‰è§’å†…å­˜è¡Œ
 	for(int i=0; i< len ;i++)
 	{
-		st[i].resize(i+1);				//µÚiĞĞÄÚ´æÖØ·ÖÅä
-		st[i][0] = st[i][i] = 1;		//¸³ÖµÊ×Î»
+		st[i].resize(i+1);				//ç¬¬iè¡Œå†…å­˜é‡åˆ†é…
+		st[i][0] = st[i][i] = 1;		//èµ‹å€¼é¦–ä½
 
-		for(int j = 1; j <= i -1 ;j++)	//¸³ÖµÖĞ¼ä
+		for(int j = 1; j <= i -1 ;j++)	//èµ‹å€¼ä¸­é—´
 		{
 			st[i][j] = st[i -1][j] + st[i -1][j -1];
 		}
