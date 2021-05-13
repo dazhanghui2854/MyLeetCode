@@ -38,6 +38,7 @@ using namespace std;
 
         while(fast != slow)
         {
+            /*分别对应fast在倒数第二个节点位置和在最后一位*/
             if(fast == NULL || fast->next == NULL)
             {
                 return false;
@@ -50,13 +51,4 @@ using namespace std;
 
 
 
-int main()
-{
-
-
-
-
-    return 0;
-
-};
 
