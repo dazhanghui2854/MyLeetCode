@@ -41,20 +41,21 @@ string reverseWords(string s)
 	int left = 0;
 	int right = 0;
 
-
+	/*左边界为每次计算完整字符串的起点*/
 	while(left < len)
 	{
 		if(s[left]!=' ')
 		{
-
+			/*初始化起点*/
 			right = left;
+			//&& right < len 一定别忘了
 			while(s[right]!=' ' && right < len)
 			{
 				right++;
 			}
-
+			/*此时right已为' '*/
 			reverse(s.begin()+left,s.begin()+right);
-
+			/*重置滑动窗口起始位置*/
 			left = right;
 		}
 		else

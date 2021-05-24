@@ -36,12 +36,35 @@ using namespace std;
 
 bool containsNearbyDuplicate(vector<int>& nums, int k) 
 {
+	unordered_map<int, int> st;
+	for (int i = 0; i < nums.size(); i++) 
+	{
+		int tmp = nums[i];
+		//如果哈希表中找到相同的元素，返回真,在不插入的情况下确定
+		//st[tmp] 可能为0也表示存在，必须用count
+		if (st.count(tmp)) 
+			return true;
+		//将对应的key-value存入哈希表
+		st[tmp] = i;
+		//若哈希表长度大于k，则删除最前面那个元素
+		//这样就保证哈希表中始终存放的都是数组中相邻的k个元素
+		//下一次又要+所以只能存放k个哈希键值对
+		if (st.size() > k) 
+			st.erase(nums[i - k]);
+	}
+	return false;
+}
+
+
+
+bool containsNearbyDuplicate(vector<int>& nums, int k) 
+{
 	int len= nums.size();
 	bool ret = false;
 	int left = 0;
 	int right = 0;
 	unordered_map<int,int> st;
-
+	/*一直右移*/
 	while(right < len)
 	{
 		int tmp = nums[right];
@@ -56,22 +79,23 @@ bool containsNearbyDuplicate(vector<int>& nums, int k)
 		}
 		else
 		{
+			/*如果当前窗口大小还没过临界*/
 			if(right - left < k )
 			{
 				right++;
 			}
-			else 
+			else //过了或者已达到临界，一直移动左窗口直到满足
 			{
 				while(right - left > k || right - left == k)
 				{
 					int tmp = nums[left];
 					st[tmp]--;
-				
+					/*最好加上*/
 					if(st[tmp ==0])
 						st.erase(tmp);
 					left++;
 				}
-			
+				/*right需一直右移*/
 				right++;
 			}
 		}

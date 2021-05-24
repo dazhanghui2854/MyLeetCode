@@ -32,6 +32,31 @@ using namespace std;
 */
 
 
+
+int findMaxConsecutiveOnes(vector<int>& nums) 
+{
+	int len = nums.size();
+	int ret_max = 0;
+	int sum = 0;
+	for(int i=0 ;i < len;i++)
+	{
+		if(nums[i] ==1)
+		{
+			sum++;
+			if(sum > ret_max)
+				ret_max = sum;
+		}
+		else
+		{
+			sum = 0;
+		}
+	}
+	return ret_max;
+}
+
+
+
+
 int langestnumber(vector<int>& arr)
 {
 	int len = arr.size();

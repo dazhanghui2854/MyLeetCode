@@ -42,12 +42,12 @@ int lengthOfLongestSubstringKDistinct(string s, int k)
 	{
 		if(left!=0)
 		{
-			char cL = s[left - 1];
-			st[cL]--;
-			if(st[cL] == 0)
-				st.erase(cL);
+			char cl = s[left -1];
+			if(st[cl] == 1)
+				st.erase(cl);
+			else
+				st[cl]--;
 		}
-
 		while(right < len)
 		{
 			char cR = s[right];

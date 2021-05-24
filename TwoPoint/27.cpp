@@ -65,6 +65,7 @@ int removeElement(vector<int>& arr ,int target)
 			slow++;
 		}
 	}
+	//slow多了1
 	return slow  ;
 }
 

@@ -61,6 +61,7 @@ int removeElement(vector<int>& arr)
 	int slow = 0;
 
 	int cur = 0;
+	//只需判断到len -1
 	for(int fast =0 ;fast < len -1 ;fast++)						
 	{
 		if(arr[fast] != arr[fast + 1])							

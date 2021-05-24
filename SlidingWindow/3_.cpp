@@ -59,13 +59,17 @@ int lengthOfLongestSubstring(string s)
 
 	for(int left = 0; left < len; left++)
 	{
+		//移除左边位置元素
 		if(left!=0)
 		{
 			char cl = s[left -1];
-			st.erase(cl);	  
+			if(st[cl] == 1)
+				st.erase(cl);
+			else
+				st[cl]--;	  
 		}
 
-
+		//遍历右边界找到满足条件位置
 		while(right < len  ) 
 		{ 
 			char cr = s[right] ;
@@ -79,7 +83,7 @@ int lengthOfLongestSubstring(string s)
 				break;
 			}
 		}
-
+		//right+1了位置
 		if(right - left > ret_max)
 			ret_max = right - left	;
 

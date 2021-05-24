@@ -5,12 +5,7 @@
 #include <vector>
 #include <unordered_map>
 #include <map>
-
 /*
-给你一个非空数组，返回此数组中 第三大的数 。如果不存在，则返回数组中最大的数。
-
- 
-
 示例 1：
 
 输入：[3, 2, 1]
@@ -33,42 +28,40 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
-
 using namespace std;
 
 
-//���ص������������������ڷ�������
-int third_maxnumber(vector<int>& arr)
+int thirdMax(vector<int>& nums) 
 {
-	int len = arr.size();
-	int index= 0;
-	int tmp = 0;
+	int len = nums.size();
 	map<int,int> st;
 
-
-	for(int i=0 ;i < len ;i++)
+	for(auto tmp : nums)
 	{
-		tmp = arr[i];
 		st[tmp]++;
 	}
-	
-	auto it1 = st.begin();
-	auto it2 = st.end();
 
-	
 	if(st.size() < 3)
 	{
-		it2--;					//--后才是最好一个元素的位置
-		return it2->first;
-	}	
-	else
-	{
-		it2--;					//迭代器只能如此运算
-		it2--;
-		it2--;
-		return it2->first;
-	}	
+		auto it = st.end();
+		it--;
+		return it->first;
+	}
 
+	int max = 0;
+	int index = 1;
+	
+	for(auto it= st.rbegin();it!= st.rend();it++)
+	{
+		int tmp = it->first;
+		max = it->first;
+		if(index == 3)
+			return tmp;
+
+		index++;
+	}
+
+	return max;
 }
 
 

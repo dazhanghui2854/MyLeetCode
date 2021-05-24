@@ -43,6 +43,7 @@ bool  huiwen_word(string s )
 	for(int i=0;i< s.size() ;i++)
 	{
 		string tmp1 = s;
+		//不能直接对s做erase操作
 		tmp1.erase(i,1);
 
 		cout << "cachu i wei hou : " << tmp1 << endl;
@@ -55,7 +56,6 @@ bool  huiwen_word(string s )
 		if(tmp2 == tmp1)
 			return true;
 
-		
 	}
 
 	return false;
